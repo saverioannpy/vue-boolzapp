@@ -23,6 +23,7 @@ body{
 
 .container{
     margin: 20px 10% 0px;
+    height: 100%;
     display: flex;
 }
 
@@ -32,6 +33,8 @@ body{
 
 .container-dx{
     width: 75%;
+    display: flex;
+    flex-direction: column;
 }
 
 .container-sx .container-sx-head,
@@ -122,14 +125,14 @@ body{
 }
 
 .container-dx-main{
-    height: 100%;
+    flex-grow: 1;
     background-image: url(/img/mine.jpg);
 }
 
 
 /* footer */
 
-footer{
+.container-dx-footer{
     display: flex;
     justify-content: end;
     height: 70px;
