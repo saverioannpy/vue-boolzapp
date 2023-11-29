@@ -22,7 +22,7 @@ body{
 /* Main */
 
 .container{
-    margin: 20px 10%;
+    margin: 20px 10% 0px;
     display: flex;
 }
 
@@ -42,6 +42,34 @@ body{
     color: black;
     background-color: #eaeaea;
     padding: 5px;
+}
+
+.container-sx .container-sx-main{
+    background-color: #eaeaea;
+}
+
+.container-sx .container-sx-main .container-sx-main-searchbar{
+    padding: 8px;
+    position: relative;
+}
+
+.container-sx .container-sx-main .container-sx-main-searchbar i{
+    position: absolute;
+    left: 24px;
+    bottom: 40%;
+    color: #d7d7d7;
+    font-size: 10px;
+}
+
+.container-sx-main input{
+    width: 100%;
+    border: 1px solid #f5f5f5;
+    padding-left: 75px;
+}
+
+.container-sx-main input::placeholder{
+    font-size: 6px;
+    
 }
 
 .container-dx .container-dx-head{
@@ -73,5 +101,47 @@ body{
     margin-right: 20px;
 }
 
+.conversations{
+    background-color: white;
+}
+
+.conversation{
+    display: flex;
+    overflow-y: scroll;
+}
+
+.conversation img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px 20px 0px;
+}
+
+.conversation p{
+    padding-top: 10px;
+}
+
+.container-dx-main{
+    height: 100%;
+    background-image: url(/img/mine.jpg);
+}
 
 
+/* footer */
+
+footer{
+    display: flex;
+    justify-content: end;
+    height: 70px;
+    width: 90%;
+    margin: 0px 10%;
+    background-color: lightgray;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.text-bar{
+    width: 75%;
+    
+}

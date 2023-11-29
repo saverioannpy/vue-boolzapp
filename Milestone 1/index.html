@@ -12,7 +12,7 @@
 <body>
     <main>
         <!-- Container Boolzap-->
-        <div class="container">
+        <div class="container" id="app">
             <!--Colonna sinistra dell'app-->
             <div class="container-sx">
                 <!-- Header della nostra colonna sinistra -->
@@ -30,7 +30,20 @@
                 <!-- /Header della nostra colonna sinistra -->
                 <!-- Corpo della nostra colonna sinistra -->
                 <div class="container-sx-main">
-
+                    <div class="container-sx-main-searchbar">
+                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <!-- Sezione conversazioni e contatti-->
+                    <div class="conversations">
+                        <!-- creazione dinamica conversazioni o contatti-->
+                        <div class="conversation" v-for="contact in contacts">
+                            <img :src="contact.avatar" alt="">
+                            <p> {{ contact.name  }} </p>
+                        </div>
+                        <!-- /creazione dinamica conversazioni o contatti-->
+                    </div>
+                    <!-- / Sezione conversazioni e contatti-->
                 </div>
                 <!-- /Corpo della nostra colonna sinistra -->
             </div>
@@ -53,11 +66,22 @@
                     </div>
                 </div>
                 <!-- Header della nostra colonna destra -->
+                <div class="container-dx-main">
+                
+                </div>
+                <div class="container-dx-footer">
+                    <div class="text-bar">
+                         <input type="text">
+                    </div>
+                </div>
             </div>
             <!--/Colonna destra dell'app-->
         </div>
         <!-- Container Boolzap-->
     </main>
+   
+    <!-- VueJs-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Script JS -->
     <script src="main.js"></script>
 </body>
