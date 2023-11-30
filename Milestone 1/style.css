@@ -22,13 +22,14 @@ body{
 /* Main */
 
 .container{
-    margin: 20px 10% 0px;
-    height: 100%;
+    margin: 20px 10% 15px;
+    height: 90vh;
     display: flex;
 }
 
 .container-sx{
     width: 25%;
+    height: 100%;
 }
 
 .container-dx{
@@ -49,11 +50,12 @@ body{
 
 .container-sx .container-sx-main{
     background-color: #eaeaea;
+    height: calc(100% - 60px)
 }
 
 .container-sx .container-sx-main .container-sx-main-searchbar{
     padding: 8px;
-    position: relative;
+    position: relative; 
 }
 
 .container-sx .container-sx-main .container-sx-main-searchbar i{
@@ -100,24 +102,34 @@ body{
 
 .container-sx .container-sx-icons i,
 .container-dx .container-dx-icons i{
-
     margin-right: 20px;
+}
+
+.container-conversations{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .conversations{
     background-color: white;
+    overflow-y: scroll;
+    height: calc(100% - 35.6px);
 }
 
 .conversation{
     display: flex;
-    overflow-y: scroll;
+}
+
+.conversation:hover{
+    background-color: rgba(88, 83, 83, 0.206);
 }
 
 .conversation img{
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    margin: 10px 20px 0px;
+    margin: 5px 20px 5px;
 }
 
 .conversation p{
@@ -134,14 +146,28 @@ body{
 
 .container-dx-footer{
     display: flex;
-    justify-content: end;
     height: 70px;
-    width: 90%;
-    margin: 0px 10%;
-    background-color: lightgray;
+    background-color: #f3eeea;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-dx-footer-icon{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
 }
 
 .text-bar{
-    width: 75%;
-    
+   width: 80%;
+}
+
+.text-bar input{
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
 }

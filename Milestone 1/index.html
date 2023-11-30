@@ -35,13 +35,15 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <!-- Sezione conversazioni e contatti-->
-                    <div class="conversations">
-                        <!-- creazione dinamica conversazioni o contatti-->
-                        <div class="conversation" v-for="contact in contacts">
-                            <img :src="contact.avatar" alt="">
-                            <p> {{ contact.name  }} </p>
+                    <div class="container-conversations">
+                        <div class="conversations">
+                            <!-- creazione dinamica conversazioni o contatti-->
+                            <div class="conversation" v-for="contact in contacts">
+                                <img :src="contact.avatar" alt="">
+                                <p> {{ contact.name  }} </p>
+                            </div>
+                            <!-- /creazione dinamica conversazioni o contatti-->
                         </div>
-                        <!-- /creazione dinamica conversazioni o contatti-->
                     </div>
                     <!-- / Sezione conversazioni e contatti-->
                 </div>
@@ -65,15 +67,23 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                <!-- Header della nostra colonna destra -->
+                <!-- /Header della nostra colonna destra -->
                 <div class="container-dx-main">
-                conversazione
+                
                 </div>
+                <!-- Footer della nostra colonna destra-->
                 <div class="container-dx-footer">
+                    <div class="container-dx-footer-icon">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
                     <div class="text-bar">
                          <input type="text">
                     </div>
+                    <div class="container-dx-footer-icon">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
                 </div>
+                 <!-- /Footer della nostra colonna destra-->
             </div>
             <!--/Colonna destra dell'app-->
         </div>
