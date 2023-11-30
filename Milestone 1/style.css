@@ -139,9 +139,6 @@ body{
     width: 90%;
     margin: 0px 10%;
     background-color: lightgray;
-    position: fixed;
-    bottom: 0;
-    left: 0;
 }
 
 .text-bar{
