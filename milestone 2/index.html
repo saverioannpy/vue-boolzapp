@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzap</title>
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- My Style CSS-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Container Boolzap-->
+        <div class="container" id="app">
+            <!--Colonna sinistra dell'app-->
+            <div class="container-sx">
+                <!-- Header della nostra colonna sinistra -->
+                <div class="container-sx-head">
+                    <div class="container-sx-head-pic">
+                        <img src="/img/avatar_io.jpg" alt="">
+                        <p>Melania</p>
+                    </div>
+                    <div class="container-sx-icons">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- /Header della nostra colonna sinistra -->
+                <!-- Corpo della nostra colonna sinistra -->
+                <div class="container-sx-main">
+                    <div class="container-sx-main-searchbar">
+                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <!-- Sezione conversazioni e contatti-->
+                    <div class="container-conversations">
+                        <div class="conversations">
+                            <!-- creazione dinamica conversazioni o contatti-->
+                            <div class="conversation" :class="{ active: index === currentConversation}" v-for="(contact, index) in contacts" @click.prevent="selectConversation(index)">
+                                <img :src="contact.avatar" alt="">
+                                <div class="conversation-info">
+                                    <p> {{ contact.name  }} </p>
+                                    <p> Ultimo messaggio inviato</p>
+                                </div>
+                            </div>
+                            <!-- /creazione dinamica conversazioni o contatti-->
+                        </div>
+                    </div>
+                    <!-- / Sezione conversazioni e contatti-->
+                </div>
+                <!-- /Corpo della nostra colonna sinistra -->
+            </div>
+            <!--/Parte sinistra dell'app-->
+            <!--Colonna destra dell'app-->
+            <div class="container-dx">
+                <!-- Header della nostra colonna destra -->
+                <div class="container-dx-head">
+                    <div class="container-dx-head-pic">
+                        <img :src="contacts[currentConversation].avatar" :alt="contacts[currentConversation].name">
+                        <div class="container-dx-head-pic-info">
+                            <p> {{ contacts[currentConversation].name }} </p>
+                            <p>Ultimo accesso oggi alle</p>
+                        </div>
+                    </div>
+                    <div class="container-dx-icons">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- /Header della nostra colonna destra -->
+                <!-- Generazione dinamica della conversazione-->
+                <div class="container-dx-main">
+                    <div class="messages-container">
+                        <div class="messages-container-row" v-for="(element, index) in contacts[currentConversation].messages" :class="{ received: element.status === 'received', sent: element.status === 'sent' }" >
+                            <div :class="{ 'message-received': element.status === 'received', 'message-sent': element.status === 'sent' }">
+                                <p> {{ element.message }} </p>
+                                <p class="message-time"> {{ element.date.substring(11, 16) }} </p>
+                            </div>     
+                        </div>
+                    </div>
+                    <!-- <p> {{ contacts[currentConversation].messages[0].message }} </p> -->
+                </div>
+                <!-- /Generazione dinamica della conversazione-->
+                <!-- Footer della nostra colonna destra-->
+                <div class="container-dx-footer">
+                    <div class="container-dx-footer-icon">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <div class="text-bar">
+                         <input type="text">
+                    </div>
+                    <div class="container-dx-footer-icon">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+                 <!-- /Footer della nostra colonna destra-->
+            </div>
+            <!--/Colonna destra dell'app-->
+        </div>
+        <!-- Container Boolzap-->
+    </main>
+   
+    <!-- VueJs-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Script JS -->
+    <script src="main.js"></script>
+</body>
+</html>
