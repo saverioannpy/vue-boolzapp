@@ -1,0 +1,259 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+
+body{
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(
+    to bottom,
+    #009788 0%,
+    #009788 15%,
+    #d3dbdb 15%,
+    #d3dbdb 100%
+  );
+}
+
+/* Main */
+
+.container{
+    margin: 20px 10% 15px;
+    height: 90vh;
+    display: flex;
+}
+
+.container-sx{
+    width: 25%;
+    height: 100%;
+}
+
+.container-dx{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-sx .container-sx-head,
+.container-dx .container-dx-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    background-color: #eaeaea;
+    padding: 5px;
+}
+
+.container-sx .container-sx-main{
+    background-color: #eaeaea;
+    height: calc(100% - 60px)
+}
+
+.container-sx .container-sx-main .container-sx-main-searchbar{
+    padding: 8px;
+    position: relative; 
+}
+
+.container-sx .container-sx-main .container-sx-main-searchbar i{
+    position: absolute;
+    left: 24px;
+    bottom: 40%;
+    color: #d7d7d7;
+    font-size: 10px;
+}
+
+.container-sx-main input{
+    width: 100%;
+    border: 1px solid #f5f5f5;
+    padding-left: 75px;
+}
+
+.container-sx-main input::placeholder{
+    font-size: 10px;
+    
+}
+
+.container-dx .container-dx-head{
+    border-left: 1px solid #d7d7d7;
+}
+
+.container-sx .container-sx-head-pic,
+.container-dx .container-dx-head-pic{
+    display: flex;
+    align-items: center;
+}
+
+.container-dx .container-dx-head-pic-info{
+    padding-left: 10px;
+}
+
+
+.container-dx .container-dx-head-pic-info p:nth-child(2){
+    font-size: 10px;
+    color: #94979c;
+}
+
+.container-sx .container-sx-head-pic img,
+.container-dx .container-dx-head-pic img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.container-sx .container-sx-head-pic p{
+    font-size: 12px;
+}
+
+.container-sx .container-sx-icons,
+.container-dx .container-dx-icons{
+    color: #b1b1b1;
+}
+
+.container-sx .container-sx-icons i,
+.container-dx .container-dx-icons i{
+    margin-right: 20px;
+}
+
+.container-conversations{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.conversations{
+    background-color: #ffffff;
+    overflow-y: scroll;
+    height: calc(100% - 35.6px);
+}
+
+.conversation{
+    display: flex;
+}
+
+.conversation-info p:first-child{
+    padding-top: 10px;
+    padding-bottom: 8px;
+    font-size: 14px;
+}
+
+.conversation-info p:nth-child(2){
+    font-size: 10px;
+    color: #94979c;
+}
+
+.conversation:hover{
+    background-color: rgba(88, 83, 83, 0.206);
+}
+
+.conversation img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 5px 20px 5px;
+}
+
+/* Sezione Conversazione */
+
+.container-dx-main{
+    flex-grow: 1;
+    background-image: url(/img/mine.jpg);
+    overflow-y: scroll;
+}
+
+.conversation.active{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.message-sent{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    padding-left: 15px;
+    width: 260px;
+    height: 45px;
+    background-color: #d5f9bb; 
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 5px 6px 8px 0px rgba(0,0,0,0.17);
+}
+
+.message-received{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    padding-left: 15px;
+    width: 260px;
+    height: 45px;  
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 5px 6px 8px 0px rgba(0,0,0,0.17);
+}
+
+.message-time{
+    font-size: 8px;
+    color: #c4ccd7;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.messages-container{
+    padding: 35px 85px 0px;
+    margin-bottom: 10px;
+}
+
+.messages-container-row{
+   width: 100%;
+    display: flex;
+    
+}
+
+.messages-container-row.sent{
+    justify-content: end;
+}
+
+.messages-container-row.received{
+    justify-content: start;
+}
+
+
+
+/* Footer DX */
+
+.container-dx-footer{
+    display: flex;
+    height: 70px;
+    background-color: #f3eeea;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-dx-footer-icon{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+}
+
+.text-bar{
+   width: 80%;
+}
+
+.text-bar input{
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+}
