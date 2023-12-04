@@ -86,6 +86,9 @@
                             <div :class="{ 'message-received': element.status === 'received', 'message-sent': element.status === 'sent' }">
                                 <p> {{ element.message }} </p>
                                 <p class="message-time"> {{ element.date.substring(11, 16) }} </p>
+                                <div class="msg-options">
+                                    <p><i class="fa-solid fa-chevron-down"></i></p>
+                                </div>
                             </div>     
                         </div>
                     </div>

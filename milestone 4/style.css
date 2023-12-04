@@ -152,7 +152,6 @@ body{
 }
 
 
-
 .conversation-info .last-msg-time{
     position: absolute;
     font-size: 12px;
@@ -215,6 +214,10 @@ body{
     box-shadow: 5px 6px 8px 0px rgba(0,0,0,0.17);
 }
 
+.message-sent:hover .msg-options{
+    display: block;
+}
+
 .message-received{
     display: flex;
     align-items: center;
@@ -229,12 +232,25 @@ body{
     box-shadow: 5px 6px 8px 0px rgba(0,0,0,0.17);
 }
 
+.message-received:hover .msg-options{
+    display: block;
+}
+
 .message-time{
     font-size: 8px;
     color: #c4ccd7;
     position: absolute;
     right: 5px;
     bottom: 5px;
+}
+
+.msg-options{
+    color: #7a7d81;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    display: none;
 }
 
 .messages-container{
