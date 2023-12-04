@@ -133,14 +133,32 @@ body{
     height: calc(100% - 35.6px);
 }
 
+.conversations .no-contact-found{
+    text-align: center;
+    padding-top: 10px;
+}
+
 .conversation{
     display: flex;
+    position: relative;
 }
+
+
 
 .conversation-info p:first-child{
     padding-top: 10px;
     padding-bottom: 8px;
     font-size: 14px;
+}
+
+
+
+.conversation-info .last-msg-time{
+    position: absolute;
+    font-size: 12px;
+    color: #c4ccd7;
+    top: 10px;
+    right: 10px;
 }
 
 .conversation-info p:nth-child(2){
@@ -161,6 +179,17 @@ body{
 }
 
 /* Sezione Conversazione */
+.container-dx-empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    background-image: url(/img/mine.jpg);
+}
+
+.container-dx-empty p{
+    color: #6c6d70;
+}
 
 .container-dx-main{
     flex-grow: 1;

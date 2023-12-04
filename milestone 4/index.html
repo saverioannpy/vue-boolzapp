@@ -35,7 +35,7 @@
                 <!-- Corpo della nostra colonna sinistra -->
                 <div class="container-sx-main">
                     <div class="container-sx-main-searchbar">
-                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" @keyup="searchConversation" v-model="searchInput">
+                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" @keyup="searchConversation" @click="resetConversation" v-model="searchInput">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <!-- Sezione conversazioni e contatti-->
@@ -46,13 +46,14 @@
                                 <img :src="contact.avatar" alt="">
                                 <div class="conversation-info">
                                     <p> {{ contact.name  }} </p>
-                                    <p> {{ contact.messages[1].message}} </p>
+                                    <p> {{ contact.messages[contact.messages.length-1].message}} </p>
+                                    <p class="last-msg-time">{{ contact.messages[contact.messages.length-1].date.substring(11, 16)}}</p>
                                 </div>
                             </div>
                             <!-- /creazione dinamica conversazioni o contatti-->
                         </div>
-                        <div class="conversations" v-else>
-                            Contatto non trovato
+                        <div class="conversations" v-else-if="searchConversation().length === 0">
+                            <p class="no-contact-found">Contatto non trovato</p>
                         </div>
                     </div>
                     <!-- / Sezione conversazioni e contatti-->
@@ -61,14 +62,14 @@
             </div>
             <!--/Parte sinistra dell'app-->
             <!--Colonna destra dell'app-->
-            <div class="container-dx">
+            <div class="container-dx" v-if="currentConversation !== null">
                 <!-- Header della nostra colonna destra -->
                 <div class="container-dx-head">
                     <div class="container-dx-head-pic">
                         <img :src="searchConversation()[currentConversation].avatar" :alt="searchConversation()[currentConversation].name">
                         <div class="container-dx-head-pic-info">
                             <p> {{ searchConversation()[currentConversation].name }} </p>
-                            <p >Ultimo accesso oggi alle</p>
+                            <p >Ultimo accesso oggi alle {{}}</p>
                         </div>
                     </div>
                     <div class="container-dx-icons">
@@ -79,9 +80,9 @@
                 </div>
                 <!-- /Header della nostra colonna destra -->
                 <!-- Generazione dinamica della conversazione-->
-                <div class="container-dx-main" id="provaAltezza">
+                <div class="container-dx-main">
                     <div class="messages-container">
-                        <div class="messages-container-row" v-for="(element, index) in contacts[currentConversation].messages" :class="{ received: element.status === 'received', sent: element.status === 'sent' }" >
+                        <div class="messages-container-row" v-for="(element, index) in searchConversation()[currentConversation].messages" :class="{ received: element.status === 'received', sent: element.status === 'sent' }" >
                             <div :class="{ 'message-received': element.status === 'received', 'message-sent': element.status === 'sent' }">
                                 <p> {{ element.message }} </p>
                                 <p class="message-time"> {{ element.date.substring(11, 16) }} </p>
@@ -104,6 +105,11 @@
                     </div>
                 </div>
                  <!-- /Footer della nostra colonna destra-->
+            </div>
+            <div class="container-dx" v-else>
+                <div class="container-dx-empty">
+                    <p>Cerca o seleziona una conversazione</p>
+                </div>
             </div>
             <!--/Colonna destra dell'app-->
         </div>

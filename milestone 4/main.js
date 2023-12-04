@@ -6,7 +6,7 @@ const myApp = createApp({
     data(){
         return{
             searchInput: '',
-            currentConversation: 0,
+            currentConversation: null,
             contacts: [
                 {
                     name: 'Michele',
@@ -174,9 +174,11 @@ const myApp = createApp({
     },
     methods: {
         selectConversation(index){
-            console.log("hai cliccato" + index);
             this.currentConversation = index;
-            console.log(this.currentConversation);
+        },
+
+        resetConversation(){
+            this.currentConversation = null;
         },
 
         messageReceive(index){
@@ -186,37 +188,28 @@ const myApp = createApp({
                 status: 'received'
             };
             this.contacts[this.currentConversation].messages.push(obj);
-            provaAltezza.scrollBy(0, 110);
-           // console.log(provaAltezza.scrollHeight);
         },
 
         messageSubmit(index){
             if(messageInput.value !== ""){ //l'utente non può inserire un campo vuoto
                 const time = luxon.DateTime;
                 const obj = {
-                    date: '10/01/2020 15:51:00',
+                    date: '10/01/2020 15:51:00', // DATETIME_SHORT_WITH_SECONDS
                     message: messageInput.value,
                     status: 'sent'
                 };
                 messageInput.value = ""; 
                 this.contacts[this.currentConversation].messages.push(obj);
-                //console.log(provaAltezza.scrollHeight);
-                //provaAltezza.scrollBy(0, 110);
                 setInterval(this.messageReceive(index), 5_000);
-            
             }
         },
 
         searchConversation(){
-            //console.log(searchInput.value);
-            return this.contacts.filter((contact) =>  contact.name.toLowerCase().includes(this.searchInput.toLowerCase()))
-
-          /*  if (this.keyTask.trim() !== '') {
-                return this.tasks
-                .filter((task) =>
-                task.text.toLowerCase().includes(this.keyTask.toLowerCase())
-          )
-            ) */
+            if (this.searchInput.trim() !== '') {
+            return this.contacts.filter((contact) =>  contact.name.toLowerCase().includes(this.searchInput.toLowerCase()));
+            }else {
+                return this.contacts;
+            }
         }
     }
 });
